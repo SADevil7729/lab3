@@ -1,0 +1,75 @@
+For Question A:
+compile:
+g++ -o A A.cpp
+
+To execute A ,
+it requires a "file.in"
+
+____________________________________
+For Question B:
+
+Time complexity analysis:
+insertion_sort's O(n) / sort's O(n)
+= n^2 / nlog(n) 
+= n   / log(n)
+
+In theory,
+insertion_sort will need (n / log(n))  more time than sort  
+
+
+In 1000 case:
+sort		: 0.001 seconds
+insertion_sort	: 0.02 seconds
+
+In 10000 case:
+sort		: 0.006 seconds
+insertion_sort	: 2.216 seconds
+
+In 100000 case:
+sort		: 0.075 seconds
+insertion_sort	: 209.087 seconds
+
+
+Compare practical value with theoretical value 
+In 1000 case
+0.02/0.001=20			(insertion_sort need 20 more time than sort)
+1000/log(1000)=144		(In theory,insertion_sort need 144 more time than sort)
+144/20=7.2			(the ratio of 20 and 144)
+
+In 10000 case	
+2.216/0.006=369			(insertion_sort need 369 more time than sort)
+10000/log(10000)=1085		(In theory,insertion_sort need 1085 more time than sort)
+1085/369=2.94			(the ratio of 369 and 1085)
+
+In 100000 case
+209.087/0.075=2787		(insertion_sort need 2787 more time than sort)
+100000/log(100000)=8685		(In theory,insertion_sort need 1085 more time than sort)
+8685/2787=3.11			(the ratio of 2787 and 8685)
+
+In 1000 case,there may have some error
+because the accuracy of time is 10^(-3) second,
+and the time is too short according to it.
+
+But in 10000 and 100000 case,
+I find a constant ratio 3 (I guess there exist a relation to theory and the value in practical)
+
+
+So we can expect that :
+In 200000 case,
+200000 / log(200000) = 16385	(In theory,insertion_sort need 16385 more time than sort)
+16385/3=5461			(I expect insertion_sort need 5461 more time than sort in practical,by divide the constant)
+
+(In addition, 
+I try the case to confirm it
+
+In 200000 case
+sort		: 0.156 seconds
+insertion_sort	: 783.456 seconds
+783.456/0.156=5022		(insertion_sort need 5022 more time than sort)
+200000 / log(200000) = 16385	(In theory,insertion_sort need 16385 more time than sort)
+16385/5022=3.26			(the ratio of 5022 and 16385)
+
+3.26 is close to the constant 3
+and 5022 is close to the number I expect previously (5461) 
+
+)
