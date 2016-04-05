@@ -5,7 +5,8 @@ g++ -o A A.cpp
 To execute A ,
 it requires a "file.in"
 
-____________________________________
+
+________________________________________
 For Question B:
 
 Time complexity analysis:
@@ -15,6 +16,7 @@ insertion_sort's O(n) / sort's O(n)
 
 In theory,
 insertion_sort will need (n / log(n))  more time than sort  
+
 
 
 In 1000 case:
@@ -28,6 +30,11 @@ insertion_sort	: 2.216 seconds
 In 100000 case:
 sort		: 0.075 seconds
 insertion_sort	: 209.087 seconds
+
+In 1000000 case:
+sort		: 0.863 seconds
+insertion_sort	: 19219.324 seconds
+
 
 
 Compare practical value with theoretical value 
@@ -46,12 +53,18 @@ In 100000 case
 100000/log(100000)=8685		(In theory,insertion_sort need 1085 more time than sort)
 8685/2787=3.11			(the ratio of 2787 and 8685)
 
+In 1000000 case
+19219.324/0.863=22271		(insertion_sort need 22271 more time than sort)
+1000000/log(1000000)=72382	(In theory,insertion_sort need 72382 more time than sort)
+72382/22271=3.25		(the ratio of 22271 and 72382)
+
 In 1000 case,there may have some error
 because the accuracy of time is 10^(-3) second,
 and the time is too short according to it.
 
-But in 10000 and 100000 case,
+But in 10000 and 100000 and 1000000 case,
 I find a constant ratio 3 (I guess there exist a relation to theory and the value in practical)
+
 
 
 So we can expect that :
@@ -59,7 +72,8 @@ In 200000 case,
 200000 / log(200000) = 16385	(In theory,insertion_sort need 16385 more time than sort)
 16385/3=5461			(I expect insertion_sort need 5461 more time than sort in practical,by divide the constant)
 
-(In addition, 
+(
+In addition, 
 I try the case to confirm it
 
 In 200000 case
@@ -71,5 +85,13 @@ insertion_sort	: 783.456 seconds
 
 3.26 is close to the constant 3
 and 5022 is close to the number I expect previously (5461) 
-
 )
+
+
+
+Conclusion:
+Because sort is faster than insertion_sort,
+so we can use the time sort use to expect the time insertion_sort use.
+
+Although it doesn't have a precise prediction,
+it can help us to roughly estimate how long we have to wait for it.
